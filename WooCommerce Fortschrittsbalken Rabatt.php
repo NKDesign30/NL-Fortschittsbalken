@@ -2,19 +2,18 @@
 /*
 Plugin Name: WooCommerce Fortschrittsbalken Rabatt
 Description: Ein Plugin, das einen Rabatt basierend auf dem Warenkorbwert hinzufügt
-Version: 2.0.0
+Version: 1.4.9.1
+
+
 Author: Niko
 */
-
 // Zeige Fehlermeldungen an, um mögliche Fehler zu identifizieren
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
 // Prüfen, ob WooCommerce aktiv ist
 if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 
-  // Funktion zum Berechnen des Rabatts basierend auf dem Warenkorbwert
   function calculate_discount($cart)
   {
     // Den Warenkorbwert holen
@@ -147,6 +146,13 @@ function wc_progress_bar_discount_settings()
 {
   register_setting('wc_progress_bar_discount', 'wc_progress_bar_discount_thresholds', 'wc_progress_bar_discount_validate_thresholds');
 }
+// Hier fügen Sie den Fortschrittsbalken-Code ein
+function insert_progress_bar_below_subtotal()
+{
+  // Der Fortschrittsbalken-Code hier einfügen
+  echo '<div class="progress-bar">Hier wird der Fortschrittsbalken angezeigt</div>';
+}
+add_action('woocommerce_widget_shopping_cart_before_buttons', 'insert_progress_bar_below_subtotal');
 
 function wc_progress_bar_discount_validate_thresholds($input)
 {
@@ -175,7 +181,9 @@ function wc_progress_bar_discount_admin_scripts($hook)
     return;
   }
   wp_enqueue_script('wc_progress_bar_discount_admin', plugin_dir_url(__FILE__) . 'assets/js/admin.js', array('jquery'), '1.0.0', true);
+  wp_enqueue_script('wc_progress_bar_discount_progress_bar', plugin_dir_url(__FILE__) . 'assets/js/progress-bar.js', array('jquery'), '1.0.0', true);
 }
 
 add_action('admin_enqueue_scripts', 'wc_progress_bar_discount_admin_scripts');
+
 ?>
