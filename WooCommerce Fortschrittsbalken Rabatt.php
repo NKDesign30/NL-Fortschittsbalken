@@ -2,7 +2,7 @@
 /*
 Plugin Name: WooCommerce Fortschrittsbalken Rabatt
 Description: Ein Plugin, das einen Rabatt basierend auf dem Warenkorbwert hinzufügt
-Version: 1.5.3
+Version: 1.5.4
 
 
 Author: Niko

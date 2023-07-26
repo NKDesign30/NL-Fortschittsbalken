@@ -16,7 +16,7 @@ class Elementor_Progress_Bar_Widget extends \Elementor\Widget_Base
   // Widget-Titel, der im Elementor-Editor angezeigt wird
   public function get_title()
   {
-    return __('Progress Bar', 'woocommerce-fortschrittsbalken-rabatt');
+    return __('NLBalken', 'woocommerce-fortschrittsbalken-rabatt');
   }
 
   // Widget-Symbol, das im Elementor-Editor angezeigt wird
