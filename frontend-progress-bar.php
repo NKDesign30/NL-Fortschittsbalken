@@ -26,3 +26,11 @@ function display_progress_bar_on_cart_page()
     </div>';
 }
 add_action('woocommerce_before_cart', 'display_progress_bar_on_cart_page');
+
+// Testfunktion für den Hook
+function test_hook_function()
+{
+  echo 'Der Hook "woocommerce_before_cart" wurde aufgerufen!';
+}
+
+add_action('woocommerce_before_cart', 'test_hook_function');
