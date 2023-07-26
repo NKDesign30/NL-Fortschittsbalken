@@ -1,0 +1,16 @@
+/* Stil für den Fortschrittsbalken */
+.progress-bar {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  height: 20px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+/* Stil für die gefüllte Fläche des Fortschrittsbalkens */
+.progress-bar-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
