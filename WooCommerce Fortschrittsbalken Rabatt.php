@@ -2,7 +2,7 @@
 /*
 Plugin Name: WooCommerce Fortschrittsbalken Rabatt
 Description: Ein Plugin, das einen Rabatt basierend auf dem Warenkorbwert hinzufügt
-Version: 1.5.1
+Version: 1.5.3
 
 
 Author: Niko
@@ -149,10 +149,31 @@ function wc_progress_bar_discount_settings()
 // Hier fügen Sie den Fortschrittsbalken-Code ein
 function insert_progress_bar_below_subtotal()
 {
-  // Der Fortschrittsbalken-Code hier einfügen
-  echo '<div class="progress-bar">Hier wird der Fortschrittsbalken angezeigt</div>';
+  // Get the current cart total
+  $cart_total = WC()->cart->get_cart_contents_total();
+
+  // Get the thresholds
+  $thresholds = get_option('wc_progress_bar_discount_thresholds_amount', []);
+
+  // Calculate the progress
+  $progress = 0;
+  for ($i = 0; $i < count($thresholds); $i++) {
+    if ($cart_total < $thresholds[$i]) {
+      $progress = $cart_total / $thresholds[$i] * 100;
+      break;
+    }
+  }
+  if ($i == count($thresholds)) {
+    $progress = 100;
+  }
+
+  // Display the progress bar
+  echo '<div class="progress-bar">
+        <div class="progress-bar-fill" style="width: ' . $progress . '%"></div>
+    </div>';
 }
 add_action('woocommerce_widget_shopping_cart_before_buttons', 'insert_progress_bar_below_subtotal');
+
 
 function wc_progress_bar_discount_validate_thresholds($input)
 {
