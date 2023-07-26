@@ -1,88 +1,13 @@
-/* Styles für die Schwellenwert-Tabelle */
-#wc-progress-bar-discount-thresholds-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-#wc-progress-bar-discount-thresholds-table th,
-#wc-progress-bar-discount-thresholds-table td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ccc;
-}
-
-#wc-progress-bar-discount-thresholds-table th {
-  background-color: #f5f5f5;
-}
-
-/* Stil für den Hinzufügen-Button */
-.wc-progress-bar-discount-add-threshold {
-  margin-top: 10px;
-}
-
-/* Styles für die Optionen-Seite */
-.wrap {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-.form-table {
-  width: 100%;
-}
-
-.form-table th {
-  width: 30%;
-  font-weight: normal;
-}
-
-.form-table td {
-  width: 70%;
-}
-
-.button-primary {
-  background-color: #007cba;
-  border-color: #007cba;
-  color: #fff;
-}
-
-.button-primary:hover {
-  background-color: #005b8e;
-  border-color: #005b8e;
-}
-
-/* Fortschrittsbalken */
 .progress-bar {
-  position: relative;
+  background-color: #f3f3f3;
+  border-radius: 13px;
+  padding: 3px;
+}
+
+.progress-bar .progress-bar-fill {
+  display: block;
   height: 20px;
-  background-color: #f2f2f2;
-  margin-top: 10px; /* Abstand oberhalb des Fortschrittsbalkens */
-  margin-bottom: 10px; /* Abstand unterhalb des Fortschrittsbalkens */
-}
-
-.progress-bar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background-color: #93c894;
-}
-
-/* Schwellenwert-Kreise */
-.threshold {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #000;
+  background-color: #0071a1;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
 }
