@@ -11,7 +11,8 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
   function calculate_discount($cart)
   {
     // Den Endwarenkorbwert holen
-    $total = floatval(wc_clean(wc_format_decimal($cart->get_cart_total(), wc_get_price_decimals())));
+    $total = $cart->get_subtotal();
+
 
     // Die Schwellenwerte abrufen
     $thresholds = get_option('wc_progress_bar_discount_thresholds', array());
