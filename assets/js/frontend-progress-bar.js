@@ -53,4 +53,3 @@ jQuery(document).ready(function($) {
         return progress;
     }
 });
-
