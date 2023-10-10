@@ -8,17 +8,7 @@ function display_progress_bar_on_cart_page()
   // Get the thresholds
   $thresholds = get_option('wc_progress_bar_discount_thresholds_amount', []);
 
-  // Calculate the progress
-  $progress = 0;
-  for ($i = 0; $i < count($thresholds); $i++) {
-    if ($cart_total < $thresholds[$i]) {
-      $progress = $cart_total / $thresholds[$i] * 100;
-      break;
-    }
-  }
-  if ($i == count($thresholds)) {
-    $progress = 100;
-  }
+
 
   // Display the progress bar
   echo '<div class="progress-bar">
